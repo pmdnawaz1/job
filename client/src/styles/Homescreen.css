@@ -1,0 +1,22 @@
+.login-show{
+  display:absolute;
+  top:0;
+  opacity:0.8;
+  overflow: hidden;
+  font-family: 'Lobster'
+}
+
+.homepage-nav{
+  margin-top:11rem;
+}
+
+.login-show p{
+  padding-top:2rem;
+  font-size: 2rem;
+}
+
+@media(min-width:680px){
+  .homepage-nav{
+    margin-top:2.5rem;
+  }
+}
