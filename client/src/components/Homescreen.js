@@ -30,13 +30,16 @@ class Homescreen extends React.Component{
   onSwipeListener = (e)=> {
     console.log(e);
     if (e[1] < 0) {
-      let num = e[1]*-1;
+      let num = (e[1]*-1)/2.3;
       this.setState({
-        loginHeight:num
+        loginHeight:num,
+        signupHeight:0
       })
     }else if (e[1] >= 0) {
+      let num = e[1]/2.3
       this.setState({
-        loginHeight:0
+        loginHeight:0,
+        signupHeight:num
       })
     }
 
@@ -48,13 +51,19 @@ class Homescreen extends React.Component{
       height:`${this.state.loginHeight}px`,
       backgroundColor:'black'
     }
+
+    let signUpStyles = {
+      height:`${this.state.signupHeight}px`,
+      backgroundColor:'black'
+    }
+
     return(
       <div className="homepage">
         <Swipe
               nodeName="div"
               className="test"
               mouseSwipe={true}
-              delta={150}
+              delta={300}
               onSwipedDown={this.onSwipeDownListener}
               onSwipedUp={this.onSwipeUpListener}
               onSwipe={this.onSwipeListener}
@@ -62,12 +71,14 @@ class Homescreen extends React.Component{
               preventDefaultEvent={false}
               >
               <h1>Mudkip</h1>
+              <p className="desc">Refine Your Job Search</p>
               <video id="background-video" autoPlay muted loop>
                 <source src={NightSky} type="video/mp4" />
               </video>
-              <div className="signUp-show">Hello</div>
+
               <div className="homepage-nav">
-                <p className="primary-btn login-btn">LOGIN <i id="up-btn" className="fas fa-chevron-up"></i>
+                <div style={signUpStyles} className="signUp-show"><p>Join for Free!</p></div>
+                <p className="">LOGIN <i id="up-btn" className="fas fa-chevron-up"></i>
                 <span className="divider">/</span>
                 <i id="down-btn" className="fas fa-chevron-down"></i> SIGNUP
                 </p>

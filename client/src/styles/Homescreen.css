@@ -3,19 +3,40 @@
   top:0;
   opacity:0.8;
   overflow: hidden;
-  font-family: 'Lobster'
+  
+}
+
+.desc{
+  margin-top:2rem;
+  color:#ff6600;
+}
+
+.signUp-show{
+  display:absolute;
+  top:0;
+  opacity:0.8;
+  overflow: hidden;
+
 }
 
 .homepage-nav{
   margin-top:11rem;
+  font-size:1.5rem;
 }
 
-.login-show p{
+.login-show p, .signUp-show p{
   padding-top:2rem;
   font-size: 2rem;
+  margin-top:1rem;
 }
 
+
+
 @media(min-width:680px){
+  .h1{
+    padding-top:1rem;
+  }
+
   .homepage-nav{
     margin-top:2.5rem;
   }
