@@ -1,5 +1,5 @@
 class JoblistsController < ApplicationController
-  before_action :authenticate_user
+  # before_action :authenticate_user
   before_action :set_joblist, only: [:show, :update, :destroy]
 
   # GET /joblists

@@ -1,0 +1,43 @@
+.dashboard{
+  background-color:#e3e6f7;
+  overflow: hidden;
+  height:100vh;
+}
+
+
+.dashboard header{
+  background-color:#e3e6f7;
+  margin-top:1.5rem;
+}
+
+.dashboard hr{
+  margin-top:1rem;
+}
+
+.dashboard h1{
+  display: inline;
+  font-size:1.5rem;
+  padding:1rem;
+  text-align: center;
+}
+
+.dashboard span{
+  font-size:1.5rem;
+}
+
+.bottom-nav{
+  background-color:blue;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.bottom-nav p{
+  display:inline-block;
+  border: 1px solid red;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-right:1rem;
+}

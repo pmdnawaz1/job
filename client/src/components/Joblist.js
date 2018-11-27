@@ -2,14 +2,9 @@ import React from 'react';
 import '../styles/Joblist.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchJoblists } from '../actions';
-import JoblistCard from './JoblistCard'
+import JoblistCard from './JoblistCard';
 
 class Joblist extends React.Component{
-
-  componentDidMount(){
-    this.props.fetchJoblists(localStorage.getItem('jwt'));
-  }
 
   logOut = ()=>{
     localStorage.clear();
@@ -17,9 +12,11 @@ class Joblist extends React.Component{
   }
 
   displayJoblists = ()=>{
-    return this.props.joblists.map((joblistObj)=>{
-      return <JoblistCard key={joblistObj.id}  info={joblistObj}/>
-    })
+    if (typeof this.props.userObj.joblists !== 'undefined') {
+      return this.props.userObj.joblists.joblists.map((joblistObj)=>{
+        return <JoblistCard key={joblistObj.id}  info={joblistObj}/>
+      })
+    }
   }
 
 
@@ -38,8 +35,10 @@ class Joblist extends React.Component{
   }
 }
 
-const mapStateToProps = ({joblists})=>{
-  return {joblists}
+const mapStateToProps = (state)=>{
+  return {
+    userObj: state.userObj
+  }
 }
 
-export default connect(mapStateToProps, { fetchJoblists })(Joblist)
+export default connect(mapStateToProps)(Joblist)

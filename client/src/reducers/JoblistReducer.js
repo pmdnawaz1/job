@@ -1,11 +1,12 @@
-const JoblistReducer = (state=[], action)=>{
+const JoblistReducer = (state={}, action)=>{
   switch (action.type) {
     case 'FETCH_JOBLISTS':
-      return action.payload;
-      
-    case 'POST_JOBLIST':
-      return [...state, action.payload]
-      
+      return {...state, joblists: action.payload};
+    case 'UPDATE_DASHBOARD_ID':{
+      let newObj ={...state.joblists, dashboard_id: action.payload.dashboard_id}
+      return {...state, joblists: newObj}
+    }
+
     default:
       return state
   }

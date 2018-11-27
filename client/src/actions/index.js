@@ -1,11 +1,12 @@
+import jwtDecode from 'jwt-decode'
 
-let baseURL = 'http://localhost:3002/api';
+export let baseURL = 'http://localhost:3002/api';
 
 
 export const fetchJoblists = (tokenId) =>{
   return dispatch => {
     let token = "Bearer " + tokenId;
-    fetch(`${baseURL}/joblists`,{
+    fetch(`${baseURL}/users/${jwtDecode(tokenId).sub}`,{
       method: 'GET',
       headers:{
         'Content-Type':'application/json',
@@ -23,32 +24,53 @@ export const fetchJoblists = (tokenId) =>{
   }
 }
 
-export const postJoblist = (jobList) => {
+
+export const getSelectedJoblist = (tokenId, joblist_id) => {
   return dispatch => {
-    let token = "Bearer " + localStorage.getItem("jwt");
-    let options = {
-      method: 'POST',
+    let token = "Bearer " + tokenId;
+    fetch(`${baseURL}/joblists/${joblist_id}`,{
+      method: 'GET',
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization': token
+      },
+    })
+      .then(r=>r.json())
+      .then((joblist)=>{
+        dispatch({
+          type:"SET_JOBLIST",
+          payload:joblist
+        })
+      })
+  }
+
+}
+
+export const selectJoblist = (objId) =>{
+  return dispatch => {
+    let tokenId = localStorage.getItem('jwt')
+    let token = "Bearer " + tokenId;
+    fetch(`${baseURL}/users/${jwtDecode(tokenId).sub}`,{
+      method: 'PATCH',
       headers:{
         'Content-Type':'application/json',
         'Authorization': token
       },
       body:JSON.stringify({
-        joblist: {
-          name: jobList.name
-        }
+        dashboard_id: objId
       })
-    }
-    return fetch(`${baseURL}/joblists`, options)
-      .then(r=>r.json())
-      .then(result => {
-        dispatch({
-          type:"POST_JOBLIST",
-          payload: result
-        })
+    })
+    .then(r=>r.json())
+    .then((resp)=>{
+      dispatch({
+        type:"UPDATE_DASHBOARD_ID",
+        payload: resp
       })
-      .catch(console.error)
+    })
   }
 }
+
+
 
 // export const displayJobs = (joblistId) => {
 //   return dispatch => {

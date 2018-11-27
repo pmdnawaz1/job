@@ -1,18 +1,11 @@
 import { combineReducers } from 'redux';
 import JoblistReducer from './JoblistReducer'
+import selectedJoblistReducer from './selectJoblistReducer'
 
 
 
-const selectedJoblistReducer = (selectedJoblist=null, action)=>{
-  switch (action.type) {
-    case "JOBLIST_SELECTED":
-      return action.payload;
-    default:
-      return selectedJoblist;
-  }
-}
 
 export default combineReducers({
-  joblists: JoblistReducer,
+  userObj: JoblistReducer,
   selectedJoblist: selectedJoblistReducer
 })

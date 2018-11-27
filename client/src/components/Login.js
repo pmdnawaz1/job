@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/Login.css'
+import { connect } from 'react-redux'
+import { fetchJoblists } from '../actions'
+
 
 
 let baseURL = 'http://localhost:3002/';
@@ -37,6 +40,9 @@ class Login extends React.Component{
           }else {
             localStorage.clear();
           }
+        })
+        .then(()=>{
+          this.props.fetchJoblists(localStorage.getItem('jwt'));
         })
         .then(()=>{
           this.props.history.push('/joblists')
@@ -98,4 +104,4 @@ class Login extends React.Component{
 
 
 
-export default Login
+export default connect(null, { fetchJoblists })(Login)

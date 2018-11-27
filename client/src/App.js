@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import Homescreen from './components/Homescreen';
-import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { Route, Redirect, withRouter } from 'react-router-dom';
 import Login from './components/Login';
 import Joblist from './components/Joblist'
 import NewJoblist from './components/NewJoblist'
 import JoblistShow from './components/JoblistShow'
+import Dashboard from './components/Dashboard'
+import { fetchJoblists } from './actions';
+
+
+const checkAuth = () =>{
+  const token  = window.localStorage.getItem('jwt');
+  if(!token){
+    return false
+  }
+  return true
+}
 
 const AuthRoute = ({ component: Component, ...rest }) => {
-  const checkAuth = () =>{
-    const token  = window.localStorage.getItem('jwt');
-    if(!token){
-      return false
-    }
-    return true
-  }
-
   return (
     <Route {...rest} render={props =>
         checkAuth()
@@ -30,6 +34,13 @@ const AuthRoute = ({ component: Component, ...rest }) => {
 }
 
 class App extends Component {
+
+  componentDidMount(){
+    if (checkAuth()) {
+      this.props.fetchJoblists(localStorage.getItem('jwt'));
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -37,10 +48,10 @@ class App extends Component {
         <Route exact path='/login' component={Login} />
         <AuthRoute exact path='/joblists' component={Joblist} />
         <AuthRoute exact path='/joblists/new' component={NewJoblist} />
-        <AuthRoute path='/joblists/:id' component={JoblistShow} />
+        <AuthRoute path='/dashboard' component={Dashboard} />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(connect(null, { fetchJoblists })(App));

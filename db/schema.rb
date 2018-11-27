@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20181126202516) do
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "dashboard_id"
   end
 
 end
