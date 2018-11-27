@@ -1,8 +1,6 @@
 import React from 'react'
-import { Route, Link } from 'react-router-dom';
 import '../styles/App.css';
 import '../styles/Homescreen.css'
-import Login from './Login';
 import NightSky from '../media/night_sky.mp4';
 import Swipe from 'react-swipe-component';
 
@@ -28,7 +26,6 @@ class Homescreen extends React.Component{
   }
 
   onSwipeListener = (e)=> {
-    console.log(e);
     if (e[1] < 0) {
       let num = (e[1]*-1)/2.3;
       this.setState({
@@ -86,9 +83,6 @@ class Homescreen extends React.Component{
                   <p>Welcome Back!</p>
                 </div>
               </div>
-
-
-
 
           </Swipe>
 

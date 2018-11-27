@@ -1,6 +1,10 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../styles/Login.css'
+
+
+let baseURL = 'http://localhost:3002/';
+
 
 class Login extends React.Component{
   state={
@@ -16,8 +20,30 @@ class Login extends React.Component{
 
   submitHandler = (e)=>{
     e.preventDefault();
-    this.props.history.push('/joblist')
-  }
+      let options={
+        method: 'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+          "auth": this.state
+        })
+      }
+      fetch(`${baseURL}api/user_token`, options)
+        .then(r=>r.json())
+        .then(token => {
+          if (token.jwt) {
+            localStorage.setItem('jwt', token.jwt)
+          }else {
+            localStorage.clear();
+          }
+        })
+        .then(()=>{
+          this.props.history.push('/joblists')
+        })
+        .catch(console.error)
+    }
+
 
   render(){
     return (
@@ -64,7 +90,6 @@ class Login extends React.Component{
               </div>
             </div>
           </div>
-
         </div>
 
     )

@@ -1,21 +1,18 @@
 import { combineReducers } from 'redux';
-
-const joblistsReducer = ()=>{
-  return[]
-}
+import JoblistReducer from './JoblistReducer'
 
 
-const selectedJoblistReducer = (selectedJob=null, action)=>{
+
+const selectedJoblistReducer = (selectedJoblist=null, action)=>{
   switch (action.type) {
-    case "JOB_SELECTED":
+    case "JOBLIST_SELECTED":
       return action.payload;
-      break;
     default:
-      return selectedJob;
+      return selectedJoblist;
   }
 }
 
 export default combineReducers({
-  joblists: joblistsReducer,
+  joblists: JoblistReducer,
   selectedJoblist: selectedJoblistReducer
 })

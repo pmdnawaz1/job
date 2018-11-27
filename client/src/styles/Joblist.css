@@ -1,39 +1,45 @@
 .joblist{
-  background-color:#eee;
-  height:100vh;
+  background-color:#e3e6f7;
+  height:100%;
 }
 
-.joblist h1{
-  padding:1rem;
-}
 
 .joblist-header{
   font-weight: lighter;
-  padding:2rem;
+  padding:3rem 2rem;
   text-align: left;
 }
 
 .joblist-header h2{
   display:inline;
+  font-size:2rem;
   padding-left:1.5rem;
 }
 
 .joblist-add{
-  display:block;
+  display:inline-block;
   margin:0 auto;
-  width:95%;
+  width:4rem;
+  height:4rem;
+  font-size:2rem;
   text-decoration: none;
-  color: black;
-  background-color:#888;
-  padding:.25rem;
+  color: #ff6600;
+  background-color:#ced5ff;
+  padding:.8rem;
   border:none;
-  border-radius:2px;
+  border-radius:50%;
+}
+
+.fa-atlas{
+  font-size:1.5rem;
+  color:#ff6600;
 }
 
 .joblist-card{
   margin:1rem;
-  border: 2px solid gray;
+  border: 2px solid #ffd9a5;
   border-radius:10px;
+  background-color:#ffe3bc;
 }
 
 .log-out{
@@ -44,4 +50,82 @@
   border-radius:5px;
   width:80%;
   height:2rem;
+}
+
+.new-joblist h1{
+  display: inline-block;
+  font-size:1.5rem;
+  padding:0 3rem;
+  text-align: center;
+}
+
+.new-joblist hr{
+  height: 12px;
+  border: 0;
+  box-shadow: inset 0 12px 12px -12px black;
+}
+
+.newjoblist-header{
+  display:flex;
+  padding:1rem;
+  width:100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-span{
+  padding:1rem;
+}
+
+.save-btn{
+  width:90%;
+  background-color:green;
+}
+
+.new-joblist{
+  background-color:#f2f7ff;
+  height:100vh;
+}
+
+.joblist-name{
+  width:100%;
+  margin:2rem auto;
+}
+
+
+.joblist-name label{
+  padding-right:1rem;
+  padding-bottom:.5rem;
+  width:10%;
+
+}
+
+.joblist-name{
+  border:1px solid gray;
+  width:90%;
+  border-radius:5px;
+  overflow: hidden;
+}
+
+.joblist-name input{
+  height:3rem;
+  border: 0px solid transparent;
+  width:90%;
+  margin-right:-.9rem;
+  font-size:1.5rem;
+  background-color: #f2f7ff;
+}
+
+.plus{
+  background-color:green;
+  display: inline-block;
+  width:35px;
+  height:35px;
+  border-radius: 50%;
+  padding:.25rem;
+}
+
+.joblist-card h1{
+  font-size:1.6rem;
+  padding:1rem;
 }

@@ -4,7 +4,8 @@ class JoblistsController < ApplicationController
 
   # GET /joblists
   def index
-    @joblists = current_user.joblists
+    @joblists = Joblist.all
+    # current_user.joblists
     render json: @joblists
   end
 
@@ -15,11 +16,8 @@ class JoblistsController < ApplicationController
 
   # POST /joblists
   def create
-    @joblist = Joblist.new({
-        name: params.require(:joblist).permit(:name),
-        user_id: current_user.id
-      })
-
+    @joblist = Joblist.new(joblist_params)
+    @joblist.user_id = current_user.id
     if @joblist.save
       render json: @joblist, status: :created, location: @joblist
     else
@@ -49,6 +47,6 @@ class JoblistsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def joblist_params
-      params.require(:joblist).permit(:name, :user_id)
+      params.require(:joblist).permit(:name)
     end
 end
