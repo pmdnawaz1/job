@@ -2,12 +2,14 @@ import React from 'react'
 import '../styles/Dashboard.css'
 import { connect } from 'react-redux'
 import { getSelectedJoblist } from '../actions'
+import NewJobForm from './NewJobForm'
 
 class Dashboard extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      selectedJoblist: {}
+      selectedJoblist: {},
+      plusClicked: false
     }
   }
 
@@ -36,7 +38,30 @@ class Dashboard extends React.Component{
     }
   }
 
+  newJob = (event) => {
+    this.setState((state) => {
+      return {
+        plusClicked: !state.plusClicked
+      };
+    });
+  }
 
+  displayForm = () => {
+    if (this.state.plusClicked) {
+      return (
+        <NewJobForm displayToggle={this.newJob} />
+      )
+    }
+  }
+
+  displayToggle = ()=>{
+    let style = {
+      display: 'none'
+    }
+    if (!this.state.plusClicked) {
+      return style
+    }
+  }
 
   render(){
     return(
@@ -47,11 +72,18 @@ class Dashboard extends React.Component{
           <span className="nav-span"><i className="fas fa-user-cog"></i></span>
           <hr/>
         </header>
-          <section className="jobs">
+          <section className="dashboard-content">
+            <div style={this.displayToggle()} className="form-div">
+              {this.displayForm()}
+            </div>
+
           </section>
         <nav className="bottom-nav">
-          <p>+</p>
-          <p>Something else</p>
+          <p className="bookmark-icon"><i className="far fa-bookmark"></i></p>
+          <p className="internet-icon" ><i className="fas fa-globe-americas"></i></p>
+          <p onClick={this.newJob} className="nav-plus"><i className="far fa-plus-square"></i></p>
+          <p className="list-icon"><i className="fas fa-list-ul"></i></p>
+          <p className="calendar-icon"><i className="far fa-calendar-alt"></i></p>
         </nav>
       </div>
     )

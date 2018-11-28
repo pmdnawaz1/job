@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { withRouter, Route } from "react-router";
+import { withRouter} from "react-router";
 import { selectJoblist } from '../actions'
 
 

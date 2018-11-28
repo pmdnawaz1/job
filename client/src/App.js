@@ -6,7 +6,6 @@ import { Route, Redirect, withRouter } from 'react-router-dom';
 import Login from './components/Login';
 import Joblist from './components/Joblist'
 import NewJoblist from './components/NewJoblist'
-import JoblistShow from './components/JoblistShow'
 import Dashboard from './components/Dashboard'
 import { fetchJoblists } from './actions';
 
@@ -40,7 +39,6 @@ class App extends Component {
       this.props.fetchJoblists(localStorage.getItem('jwt'));
     }
   }
-
   render() {
     return (
       <div className="App">
