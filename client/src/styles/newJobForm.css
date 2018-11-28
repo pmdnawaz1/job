@@ -1,6 +1,7 @@
 .new-job-form{
+  border-radius:5px;
   background-color:black;
-  opacity:0.8;
+  opacity:.8;
   width:90%;
   margin:0 auto;
   padding:1rem;
@@ -35,7 +36,7 @@
 
 .new-job-form > div textarea{
   width:95%;
-  font-size:1.5rem;
+  font-size:1rem;
   border-radius:3px;
   border:1px solid transparent;
   background-color:#140500;

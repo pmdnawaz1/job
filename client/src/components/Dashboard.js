@@ -63,6 +63,15 @@ class Dashboard extends React.Component{
     }
   }
 
+  overlay = () => {
+    if (this.state.plusClicked) {
+      return {
+        backgroundColor:'black',
+        opacity:0.6
+      }
+    }
+  }
+
   render(){
     return(
       <div className="dashboard">

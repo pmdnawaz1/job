@@ -95,6 +95,31 @@ export const postJoblist = (name) => {
     }
   }
 
+export const postJob = (jobObj) => {
+  return dispatch => {
+    let token = "Bearer " + localStorage.getItem("jwt");
+    let options = {
+      method: 'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization': token
+      },
+      body:JSON.stringify({
+        job: jobObj
+      })
+    }
+    return fetch(`${baseURL}/jobs`, options)
+      .then(r=>r.json())
+      .then((response)=>{
+        debugger
+        dispatch({
+          type: 'POST_JOB',
+          payload:response
+        })
+      })
+    }
+}
+
 
 
 
