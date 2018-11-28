@@ -11,7 +11,7 @@ import Dashboard from './components/Dashboard'
 import { fetchJoblists } from './actions';
 
 
-const checkAuth = () =>{
+export const checkAuth = () =>{
   const token  = window.localStorage.getItem('jwt');
   if(!token){
     return false
@@ -19,7 +19,7 @@ const checkAuth = () =>{
   return true
 }
 
-const AuthRoute = ({ component: Component, ...rest }) => {
+export const AuthRoute = ({ component: Component, ...rest }) => {
   return (
     <Route {...rest} render={props =>
         checkAuth()

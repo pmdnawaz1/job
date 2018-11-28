@@ -13,8 +13,8 @@ class Joblist extends React.Component{
 
   displayJoblists = ()=>{
     if (typeof this.props.userObj.joblists !== 'undefined') {
-      return this.props.userObj.joblists.joblists.map((joblistObj)=>{
-        return <JoblistCard key={joblistObj.id}  info={joblistObj}/>
+      return this.props.userObj.joblists.map((joblistObj)=>{
+        return <JoblistCard key={joblistObj.id} info={joblistObj} />
       })
     }
   }

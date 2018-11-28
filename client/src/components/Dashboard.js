@@ -4,14 +4,10 @@ import { connect } from 'react-redux'
 import { getSelectedJoblist } from '../actions'
 
 class Dashboard extends React.Component{
-  constructor(props){
-    super(props);
-    this.forceUpdate()
-    debugger
-  }
+
   componentWillReceiveProps = (nextProps) => {
     if (this.props.userObj !== nextProps.userObj) {
-      nextProps.getSelectedJoblist(localStorage.getItem('jwt'), nextProps.userObj.joblists.dashboard_id)
+      nextProps.getSelectedJoblist(localStorage.getItem('jwt'), nextProps.userObj.dashboard_id)
     }
   }
 

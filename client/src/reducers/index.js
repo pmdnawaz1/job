@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import JoblistReducer from './JoblistReducer'
+import UsersReducer from './UsersReducer'
 import selectedJoblistReducer from './selectJoblistReducer'
 
 
 
 
 export default combineReducers({
-  userObj: JoblistReducer,
+  userObj: UsersReducer,
   selectedJoblist: selectedJoblistReducer
 })

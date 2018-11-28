@@ -50,7 +50,7 @@ export const selectJoblist = (objId) =>{
   return dispatch => {
     let tokenId = localStorage.getItem('jwt')
     let token = "Bearer " + tokenId;
-    fetch(`${baseURL}/users/${jwtDecode(tokenId).sub}`,{
+    return fetch(`${baseURL}/users/${jwtDecode(tokenId).sub}`,{
       method: 'PATCH',
       headers:{
         'Content-Type':'application/json',
