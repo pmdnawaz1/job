@@ -28,7 +28,7 @@ export const fetchJoblists = (tokenId) =>{
 export const getSelectedJoblist = (tokenId, joblist_id) => {
   return dispatch => {
     let token = "Bearer " + tokenId;
-    fetch(`${baseURL}/joblists/${joblist_id}`,{
+    return fetch(`${baseURL}/joblists/${joblist_id}`,{
       method: 'GET',
       headers:{
         'Content-Type':'application/json',
@@ -69,6 +69,32 @@ export const selectJoblist = (objId) =>{
     })
   }
 }
+
+
+export const postJoblist = (name) => {
+  return dispatch => {
+    let token = "Bearer " + localStorage.getItem("jwt");
+    let options = {
+      method: 'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization': token
+      },
+      body:JSON.stringify({
+        joblist: {name}
+      })
+    }
+    return fetch(`${baseURL}/joblists`, options)
+      .then(r=>r.json())
+      .then((response)=>{
+        dispatch({
+          type: 'POST_JOBLIST',
+          payload:response
+        })
+      })
+    }
+  }
+
 
 
 

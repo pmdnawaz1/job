@@ -1,5 +1,6 @@
 import React from 'react'
-import { baseURL } from '../actions'
+import { postJoblist } from '../actions'
+import { connect } from 'react-redux'
 
 
 class NewJoblist extends React.Component{
@@ -24,25 +25,13 @@ class NewJoblist extends React.Component{
 
   submitHandler = (e) =>{
     e.preventDefault();
-    let token = "Bearer " + localStorage.getItem("jwt");
-    let options = {
-      method: 'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'Authorization': token
-      },
-      body:JSON.stringify({
-        joblist: {
-          name: this.state.joblistName
-        }
-      })
-    }
-    return fetch(`${baseURL}/joblists`, options)
-      .then(r=>r.json())
-      .then(()=>{
-        this.props.history.push('/joblists')
-      })
-      .catch(console.error)
+    // .then(()=>{
+    //   this.props.history.push('/joblists')
+    // })
+    this.props.postJoblist(this.state.joblistName)
+        .then(()=>{
+          this.props.history.push("/joblists")
+        })
   }
 
   render(){
@@ -67,4 +56,4 @@ class NewJoblist extends React.Component{
   }
 }
 
-export default NewJoblist
+export default connect(null, { postJoblist })(NewJoblist)

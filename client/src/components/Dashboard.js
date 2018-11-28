@@ -4,20 +4,46 @@ import { connect } from 'react-redux'
 import { getSelectedJoblist } from '../actions'
 
 class Dashboard extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      selectedJoblist: {}
+    }
+  }
 
   componentWillReceiveProps = (nextProps) => {
     if (this.props.userObj !== nextProps.userObj) {
       nextProps.getSelectedJoblist(localStorage.getItem('jwt'), nextProps.userObj.dashboard_id)
     }
+    if (nextProps.selectedJoblist && this.props.selectedJoblist !== nextProps.selectedJoblist) {
+      this.setState({
+        selectedJoblist: nextProps.selectedJoblist
+      });
+    }
   }
 
+  displayName=()=>{
+    if (typeof this.state.selectedJoblist !== 'undefined') {
+      return this.state.selectedJoblist.name
+    }
+  }
+
+  componentDidMount(){
+    if (this.props.selectedJoblist && typeof this.props.selectedJoblist !== 'undefined') {
+      this.setState({
+        selectedJoblist: this.props.selectedJoblist[0]
+      })
+    }
+  }
+
+
+
   render(){
-    console.log(this.props.selectedJoblist)
     return(
       <div className="dashboard">
         <header>
           <span onClick={()=> this.props.history.push("/joblists")} className="nav-span"><i className="fas fa-chevron-left"></i></span>
-            <h1>Placeholder</h1>
+            <h1>{this.displayName()}</h1>
           <span className="nav-span"><i className="fas fa-user-cog"></i></span>
           <hr/>
         </header>
