@@ -1,0 +1,19 @@
+.state-select{
+  display:block;
+  margin:.5rem auto;
+  background-color:#eee;
+  border:1px solid #444;
+  border-radius: 3px;
+  border-radius:3px;
+}
+
+.web-form input{
+  border:1px solid #444;
+  height:2rem;
+  font-size:1rem;
+}
+
+.web-submit{
+  margin-top:0;
+  border-radius:3px;
+}

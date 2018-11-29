@@ -119,20 +119,16 @@ export const postJob = (jobObj) => {
     }
 }
 
-
-
-
-// export const displayJobs = (joblistId) => {
-//   return dispatch => {
-//     let token = "Bearer " + localStorage.getItem("jwt");
-//     let options = {
-//       method: 'GET',
-//       headers:{
-//         'Content-Type':'application/json',
-//         'Authorization': token
-//       }
-//     }
-//     fetch(`${baseURL}/joblists/${joblistId}`)
-//       .then(r=>r.json())
-//   }
-// }
+export const scrapeJobs = (jobData) => {
+  return dispatch => {
+    let options = {
+      method: 'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify(jobData)
+    }
+    fetch(`${baseURL}/zipscrape`, options)
+      .then(r=>r.json())
+  }
+}

@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
 
+
   scope '/api' do
     post 'user_token' => 'user_token#create'
     resources :joblist_jobs
+    resources :zipscrapes, only: [:index, :create]
     resources :jobs
     resources :joblists
     resources :users

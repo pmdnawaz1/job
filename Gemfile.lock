@@ -57,6 +57,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
+    json (2.1.0)
     jsonapi-renderer (0.2.0)
     jwt (1.5.6)
     knock (2.1.1)
@@ -145,8 +146,10 @@ DEPENDENCIES
   active_model_serializers
   bcrypt (~> 3.1.7)
   byebug
+  json
   knock
   listen (>= 3.0.5, < 3.2)
+  nokogiri
   pg (>= 0.18, < 2.0)
   puma (~> 3.7)
   rack-cors

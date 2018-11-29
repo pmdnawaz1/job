@@ -3,13 +3,17 @@ import '../styles/Dashboard.css'
 import { connect } from 'react-redux'
 import { getSelectedJoblist } from '../actions'
 import NewJobForm from './NewJobForm'
+import JobCard from './JobCard'
+import Web from './Web'
 
 class Dashboard extends React.Component{
   constructor(props){
     super(props)
     this.state = {
       selectedJoblist: {},
-      plusClicked: false
+      plusClicked: false,
+      bookmarkClicked: false,
+      webClicked: false
     }
   }
 
@@ -36,6 +40,9 @@ class Dashboard extends React.Component{
         selectedJoblist: this.props.selectedJoblist
       })
     }
+    this.setState({
+      bookmarkClicked:true
+    })
   }
 
   newJob = (event) => {
@@ -72,8 +79,45 @@ class Dashboard extends React.Component{
     }
   }
 
+  bookmark = () => {
+    this.setState({
+      bookmarkClicked:true,
+      webClicked:false
+    })
+  }
+
+  showJobs = () => {
+    if (this.state.bookmarkClicked) {
+      if (this.props.selectedJoblist && typeof this.props.selectedJoblist !== 'undefined') {
+        return this.props.selectedJoblist.jobs.map((job)=>{
+          return <JobCard key={job.id} jobInfo={job} />
+        })
+      }
+    }
+  }
+
+  jobToggle = () => {
+    if (!this.state.bookmarkClicked) {
+      return {
+        display:'none'
+      }
+    }
+  }
+
+  web = () => {
+    this.setState({
+      bookmarkClicked:false,
+      webClicked:true
+    })
+  }
+
+  displayWeb = () => {
+    if (this.state.webClicked) {
+      return <Web />
+    }
+  }
+
   render(){
-    console.log(this.props.selectedJoblist)
     return(
       <div className="dashboard">
         <header>
@@ -86,15 +130,20 @@ class Dashboard extends React.Component{
             <div style={this.displayToggle()} className="form-div">
               {this.displayForm()}
             </div>
-
+            <div className="jobs" style={this.jobToggle()}>
+              {this.showJobs()}
+            </div>
+            <div>
+              {this.displayWeb()}
+            </div>
           </section>
-        <nav className="bottom-nav">
-          <p className="bookmark-icon"><i className="far fa-bookmark"></i></p>
-          <p className="internet-icon" ><i className="fas fa-globe-americas"></i></p>
-          <p onClick={this.newJob} className="nav-plus"><i className="far fa-plus-square"></i></p>
-          <p className="list-icon"><i className="fas fa-list-ul"></i></p>
-          <p className="calendar-icon"><i className="far fa-calendar-alt"></i></p>
-        </nav>
+          <nav className="bottom-nav">
+            <p onClick={this.bookmark} className="bookmark-icon"><i className="far fa-bookmark"></i></p>
+            <p onClick={this.web} className="internet-icon" ><i className="fas fa-globe-americas"></i></p>
+            <p onClick={this.newJob} className="nav-plus"><i className="far fa-plus-square"></i></p>
+            <p className="list-icon"><i className="fas fa-list-ul"></i></p>
+            <p className="calendar-icon"><i className="far fa-calendar-alt"></i></p>
+          </nav>
       </div>
     )
   }

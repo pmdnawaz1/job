@@ -1,0 +1,7 @@
+.job-card{
+  border:1px solid black;
+  border-radius:5px;
+  width:95%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
