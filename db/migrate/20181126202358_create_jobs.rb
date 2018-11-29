@@ -6,7 +6,7 @@ class CreateJobs < ActiveRecord::Migration[5.1]
       t.string :location
       t.string :snippet
       t.string :job_link
-
+      t.integer :joblist_id
       t.timestamps
     end
   end

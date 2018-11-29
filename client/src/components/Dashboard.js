@@ -33,7 +33,7 @@ class Dashboard extends React.Component{
   componentDidMount(){
     if (this.props.selectedJoblist && typeof this.props.selectedJoblist !== 'undefined') {
       this.setState({
-        selectedJoblist: this.props.selectedJoblist[0]
+        selectedJoblist: this.props.selectedJoblist
       })
     }
   }
@@ -49,7 +49,7 @@ class Dashboard extends React.Component{
   displayForm = () => {
     if (this.state.plusClicked) {
       return (
-        <NewJobForm displayToggle={this.newJob} />
+        <NewJobForm joblistId={this.props.userObj.dashboard_id} displayToggle={this.newJob} />
       )
     }
   }
@@ -73,6 +73,7 @@ class Dashboard extends React.Component{
   }
 
   render(){
+    console.log(this.props.selectedJoblist)
     return(
       <div className="dashboard">
         <header>

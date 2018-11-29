@@ -3,7 +3,6 @@ class CreateJoblists < ActiveRecord::Migration[5.1]
     create_table :joblists do |t|
       t.string :name
       t.integer :user_id
-
       t.timestamps
     end
   end

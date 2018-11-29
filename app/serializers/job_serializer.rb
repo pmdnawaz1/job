@@ -1,5 +1,4 @@
 class JobSerializer < ActiveModel::Serializer
-  attributes :title, :location
-  has_many :joblist_jobs
-  has_many :joblists, through: :joblist_jobs
+  attributes :title, :location, :company_name, :snippet, :job_link, :joblist_id
+
 end

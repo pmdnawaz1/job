@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/newJobForm.css';
 import { postJob } from '../actions';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router'
 
 class NewJobForm extends React.Component{
   state = {
@@ -9,7 +10,8 @@ class NewJobForm extends React.Component{
     location:"",
     company_name:"",
     snippet: "",
-    job_link:""
+    job_link:"",
+    joblist_id: this.props.joblistId
   }
 
   changeHandler = (e) => {
@@ -21,6 +23,9 @@ class NewJobForm extends React.Component{
   submitHandler = (e) => {
     e.preventDefault();
     this.props.postJob(this.state)
+      .then(()=>{
+        this.props.displayToggle()
+      })
   }
 
   render(){
@@ -49,6 +54,10 @@ class NewJobForm extends React.Component{
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    selectedJoblist: state.selectedJoblist
+  }
+}
 
-
-export default connect(null, { postJob })(NewJobForm)
+export default withRouter(connect(mapStateToProps, { postJob })(NewJobForm))

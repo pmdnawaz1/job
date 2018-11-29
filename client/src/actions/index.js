@@ -111,7 +111,6 @@ export const postJob = (jobObj) => {
     return fetch(`${baseURL}/jobs`, options)
       .then(r=>r.json())
       .then((response)=>{
-        debugger
         dispatch({
           type: 'POST_JOB',
           payload:response
