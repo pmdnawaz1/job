@@ -3,12 +3,15 @@ import { connect } from 'react-redux'
 import { scrapeJobs } from '../actions'
 import SelectUSState from 'react-select-us-states'
 import '../styles/Web.css'
-class Web extends React.Component{
+import SearchedCard from './SearchedCard'
 
+
+class Web extends React.Component{
   state={
     job_title:"",
     city:"",
-    state:""
+    state:"",
+    page: 1
   }
 
   changeHandler = (e) => {
@@ -28,18 +31,37 @@ class Web extends React.Component{
     });
   }
 
+  displayZipJobs = () => {
+    if (this.props.jobs[0]) {
+      return this.props.jobs.map((job)=>{
+        return <SearchedCard key={job.id} info={job} />
+      })
+    }
+
+  }
+
   render(){
     return(
-      <div>
+      <div className="web">
         <form className="web-form" onSubmit={this.submitHandler}>
             <input name="job_title" value={this.state.job_title} onChange={this.changeHandler} placeholder="Position" type="text"></input>
-            <input name="location" onChange={this.changeHandler} value={this.state.location} placeholder="City" type="text"></input>
+            <input name="city" onChange={this.changeHandler} value={this.state.city} placeholder="City" type="text"></input>
             <SelectUSState className="state-select" onChange={this.setNewValue}/>
           <input className="submit-btn web-submit" type="submit" value='Search'></input>
         </form>
+        <div className="zip-jobs">
+          {this.displayZipJobs()}
+        </div>
+        <div className="page-nav">
+
+        </div>
       </div>
     )
   }
 }
 
-export default connect(null, { scrapeJobs })(Web)
+const mapStateToProps = (state) => {
+  return {jobs: state.jobs}
+}
+
+export default connect(mapStateToProps, { scrapeJobs })(Web)

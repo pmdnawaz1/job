@@ -3,8 +3,13 @@ require 'open-uri'
 require 'json'
 
 class Zipscrape < ApplicationRecord
-  def self.grab_data(page = 1, name, location, state)
-    html = open("https://www.ziprecruiter.com/candidate/search?page=#{page}&search=#{name}&location=#{location}+#{state}",'User-Agent' => 'Nooby')
+  def self.grab_data(obj_params)
+    page = obj_params['page']
+    job_title = obj_params['job_title']
+    location = obj_params['location']
+    state = obj_params['state']
+
+    html = open("https://www.ziprecruiter.com/candidate/search?page=#{page}&search=#{job_title}&location=#{location}+#{state}",'User-Agent' => 'Nooby')
     doc = Nokogiri::HTML(html)
 
     job_titles = doc.css(".just_job_title").map do |job_title|
@@ -37,7 +42,8 @@ class Zipscrape < ApplicationRecord
            company_name: job_companies[index],
            snippet: job_snippets[index],
            location: job_locations[index],
-           links: job_links[index]
+           links: job_links[index],
+           id: index
          }
       )
     end

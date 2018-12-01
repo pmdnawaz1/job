@@ -126,9 +126,17 @@ export const scrapeJobs = (jobData) => {
       headers:{
         'Content-Type':'application/json',
       },
-      body:JSON.stringify(jobData)
+      body:JSON.stringify({
+        zipscrape:jobData
+      })
     }
-    fetch(`${baseURL}/zipscrape`, options)
+    fetch(`${baseURL}/zipscrapes`, options)
       .then(r=>r.json())
+      .then(resp=>{
+        dispatch({
+          type:"GET_WEB_JOBS",
+          payload: resp
+        })
+      })
   }
 }

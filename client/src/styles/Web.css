@@ -15,5 +15,17 @@
 
 .web-submit{
   margin-top:0;
+  padding-bottom:1.8rem;
   border-radius:3px;
+}
+
+.web{
+  height:100%;
+
+}
+
+.zip-jobs{
+  position: absolute;
+  height:70%;
+  overflow: auto;
 }
