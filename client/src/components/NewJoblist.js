@@ -1,7 +1,7 @@
 import React from 'react'
 import { postJoblist } from '../actions'
 import { connect } from 'react-redux'
-
+import Logo from '../media/Mudkip.png'
 
 class NewJoblist extends React.Component{
 
@@ -40,7 +40,7 @@ class NewJoblist extends React.Component{
         <div className="newjoblist-header">
         <span onClick={()=> this.props.history.push("/joblists")} className="nav-span">Back</span>
           <h1><i style={{color:'green', opacity:this.state.opacity}} className="far fa-plus-square"></i> Joblist</h1>
-          <span onClick={this.submitHandler} className="nav-span">Save</span>
+          <img className="logo" alt="logo" src={Logo} />
         </div>
         <hr/>
         <form onSubmit={this.submitHandler}>

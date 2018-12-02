@@ -6,12 +6,10 @@
 
 .dashboard header{
   background-color:#eee;
-  padding-top:1.5rem;
+  padding-top:.5rem;
 }
 
-.dashboard hr{
-  margin-top:1rem;
-}
+
 
 .dashboard h1{
   display: inline;

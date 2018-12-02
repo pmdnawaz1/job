@@ -5,6 +5,7 @@ import { getSelectedJoblist } from '../actions'
 import NewJobForm from './NewJobForm'
 import JobCard from './JobCard'
 import Web from './Web'
+import Logo from '../media/Mudkip.png'
 
 class Dashboard extends React.Component{
   constructor(props){
@@ -120,12 +121,12 @@ class Dashboard extends React.Component{
   render(){
     return(
       <div className="dashboard">
-        <header>
+        <header className="newjoblist-header dashboard-header">
           <span onClick={()=> this.props.history.push("/joblists")} className="nav-span"><i className="fas fa-chevron-left"></i></span>
             <h1>{this.displayName()}</h1>
-          <span className="nav-span"><i className="fas fa-user-cog"></i></span>
-          <hr/>
+          <img className="logo" alt="logo" src={Logo} />
         </header>
+          <hr/>
           <section className="dashboard-content">
             <div style={this.displayToggle()} className="form-div">
               {this.displayForm()}

@@ -21,7 +21,7 @@ const SearchedCard = (props) => {
           <i className="far fa-building"></i> <span className="search-span">{props.info.company_name}</span>
           <i className="fas fa-map-pin"></i><span className="search-span">{props.info.location}</span>
         </p>
-        <a className="link-btn" target="_blank" href={props.info.links}>Job Link</a>
+        <a className="link-btn" rel="noopener noreferrer" target="_blank" href={props.info.links}>Job Link</a>
     </div>
   )
 }

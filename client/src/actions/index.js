@@ -24,7 +24,6 @@ export const fetchJoblists = (tokenId) =>{
   }
 }
 
-
 export const getSelectedJoblist = (tokenId, joblist_id) => {
   return dispatch => {
     let token = "Bearer " + tokenId;
@@ -69,7 +68,6 @@ export const selectJoblist = (objId) =>{
     })
   }
 }
-
 
 export const postJoblist = (name) => {
   return dispatch => {

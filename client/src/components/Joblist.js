@@ -3,6 +3,7 @@ import '../styles/Joblist.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import JoblistCard from './JoblistCard';
+import Logo from '../media/Mudkip.png'
 
 class Joblist extends React.Component{
 
@@ -24,7 +25,7 @@ class Joblist extends React.Component{
     return(
       <div className="joblist">
         <div className="joblist-header">
-          <i className="fas fa-atlas"></i>
+          <img className="joblist-logo" alt="logo" src={Logo} />
           <h2 className="myjoblists-header">My Joblists</h2>
         </div>
         <Link to="/joblists/new" className="joblist-add"><i style={{color:'#ff6600'}} className="far fa-plus-square"></i></Link>

@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/App.css';
 import '../styles/Homescreen.css'
 import NightSky from '../media/night_sky.mp4';
+import Logo from '../media/Mudkip.png';
 import Swipe from 'react-swipe-component';
 
 class Homescreen extends React.Component{
@@ -67,7 +68,11 @@ class Homescreen extends React.Component{
               onSwipeEnd={this.onSwipeEnd}
               preventDefaultEvent={false}
               >
-              <h1>Mudkip</h1>
+              <div className="homepage-intro">
+                <img className="homepage-logo" alt="logo" src={Logo} />
+                <h1>Mudkip</h1>
+              </div>
+
               <p className="desc">Refine Your Job Search</p>
               <video id="background-video" autoPlay muted loop>
                 <source src={NightSky} type="video/mp4" />

@@ -6,14 +6,24 @@
 
 .joblist-header{
   font-weight: lighter;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
   padding:3rem 2rem;
   text-align: left;
 }
 
+.joblist-logo{
+  height:4rem;
+  width:4rem;
+  grid-column: 2/5;
+}
+
 .joblist-header h2{
   display:inline;
+  margin-top:1rem;
   font-size:2rem;
   padding-left:1.5rem;
+  grid-column: 5/14;
 }
 
 .joblist-add{
@@ -59,22 +69,24 @@
   text-align: center;
 }
 
-.new-joblist hr, .dashboard hr{
+.new-joblist hr, .dashboard hr, .header-hr{
   height: 12px;
   border: 0;
   box-shadow: inset 0 12px 12px -12px black;
 }
 
 .newjoblist-header{
-  display:flex;
-  padding:1rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding:.5rem;
   width:100%;
-  justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .nav-span{
   padding:1rem;
+
 }
 
 .save-btn{

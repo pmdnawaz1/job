@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom'
 class JobCard extends React.Component{
 
   clickHandler = () => {
+  
     this.props.selectJob(this.props.jobInfo)
     this.props.history.push(`/jobs/${this.props.jobInfo.id}`)
   }
