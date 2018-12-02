@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './styles/App.css';
 import Homescreen from './components/Homescreen';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 import Login from './components/Login';
-import Joblist from './components/Joblist'
-import NewJoblist from './components/NewJoblist'
-import Dashboard from './components/Dashboard'
+import Joblist from './components/Joblist';
+import NewJoblist from './components/NewJoblist';
+import Dashboard from './components/Dashboard';
 import { fetchJoblists } from './actions';
+import Job from './components/Job'
 
 
 export const checkAuth = () =>{
@@ -47,6 +48,7 @@ class App extends Component {
         <AuthRoute exact path='/joblists' component={Joblist} />
         <AuthRoute exact path='/joblists/new' component={NewJoblist} />
         <AuthRoute path='/dashboard' component={Dashboard} />
+        <AuthRoute path='/jobs/:id' component={Job} />
       </div>
     );
   }

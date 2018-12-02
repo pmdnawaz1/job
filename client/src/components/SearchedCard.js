@@ -1,14 +1,20 @@
 import React from 'react'
 import '../styles/SearchedCard.css'
+import { connect } from 'react-redux'
+import { saveSearchedJobToJoblist } from '../actions'
 
 
 const SearchedCard = (props) => {
+  const handleSave = () => {
+    props.saveSearchedJobToJoblist(props.info, props.joblist_id)
+
+  }
   return(
     <div className="searched-job-card">
       <div className="search-card-header">
         <h3>
           {props.info.title}
-          
+          <i onClick={handleSave} className="far fa-save"></i>
         </h3>
       </div>
         <p>
@@ -20,4 +26,10 @@ const SearchedCard = (props) => {
   )
 }
 
-export default SearchedCard
+const mapStateToProps = (state) => {
+  return{
+    joblist_id:state.selectedJoblist.id
+  }
+}
+
+export default connect(mapStateToProps, { saveSearchedJobToJoblist })(SearchedCard)

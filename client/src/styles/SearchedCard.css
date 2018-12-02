@@ -1,17 +1,17 @@
 .searched-job-card{
   border: 1px solid gray;
   width:95%;
-  margin:1rem auto;
+  margin:1.5rem auto;
   padding:.5rem 0rem;
   background-color:#ffffff;
 }
 
-/* .search-card-header{
+.search-card-header{
   width:95%;
   margin-left:1rem;
-} */
+}
 
-/* .fa-save{
+ .fa-save{
   border: 1px solid black;
   font-size:1.2rem;
   padding:.4rem;
@@ -19,7 +19,7 @@
   color:#ff570f;
   float:right;
   margin-right:1rem;
-} */
+}
 
 .fa-map-pin{
   margin:.5rem;

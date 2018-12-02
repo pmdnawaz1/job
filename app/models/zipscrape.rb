@@ -6,10 +6,10 @@ class Zipscrape < ApplicationRecord
   def self.grab_data(obj_params)
     page = obj_params['page']
     job_title = obj_params['job_title']
-    location = obj_params['location']
+    location = obj_params['city']
     state = obj_params['state']
 
-    html = open("https://www.ziprecruiter.com/candidate/search?page=#{page}&search=#{job_title}&location=#{location}+#{state}",'User-Agent' => 'Nooby')
+    html = open("https://www.ziprecruiter.com/candidate/search?page=#{page}&search=#{job_title}&location=#{location}+#{state}&radius=50",'User-Agent' => 'Nooby')
     doc = Nokogiri::HTML(html)
 
     job_titles = doc.css(".just_job_title").map do |job_title|

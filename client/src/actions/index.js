@@ -140,3 +140,32 @@ export const scrapeJobs = (jobData) => {
       })
   }
 }
+
+export const saveSearchedJobToJoblist = (jobInfo, joblistId) => {
+  return dispatch => {
+    let token = "Bearer " + localStorage.getItem("jwt");
+    let options = {
+      method: 'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization': token
+      },
+      body:JSON.stringify({...jobInfo, joblist_id:joblistId, job_link:jobInfo.links})
+    }
+    return fetch(`${baseURL}/jobs`, options)
+      .then(r=>r.json())
+      .then((response)=>{
+        dispatch({
+          type: 'SAVE_JOB',
+          payload:response
+        })
+      })
+    }
+}
+
+export const selectJob = (jobObj) => {
+  return {
+    type:"SELECT_JOB",
+    payload: jobObj
+  }
+}

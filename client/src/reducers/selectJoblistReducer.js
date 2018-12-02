@@ -8,9 +8,14 @@ const selectedJoblistReducer = (selectedJoblist=null, action)=>{
       return action.payload.joblists.find((job) => job.id === action.payload.dashboard_id);
 
     case 'POST_JOB':
-    delete action.payload.joblist_id
-    let newArr = [...selectedJoblist.jobs, action.payload]
-    return {...selectedJoblist, jobs:newArr}
+      delete action.payload.joblist_id
+      let newArr = [...selectedJoblist.jobs, action.payload]
+      return {...selectedJoblist, jobs:newArr}
+
+    case 'SAVE_JOB':{
+      let newArr = [...selectedJoblist.jobs, action.payload]
+      return {...selectedJoblist, jobs:newArr}
+    }
     default:
       return selectedJoblist;
   }
