@@ -6,9 +6,9 @@
 }
 
 .logo{
-  max-width:50%;
+  width:50%;
   margin:0 auto;
-  max-height:100%;
+  max-width:4rem;
 }
 
 .job-info-ul{
@@ -18,7 +18,7 @@
 }
 
 .job-info-ul li{
-  margin: .5rem 0;
+  margin: 1.5rem 0;
 }
 
 .info-header{
@@ -27,13 +27,17 @@
   margin-bottom:2rem;
 }
 
+.newjoblist-header{
+  background-color:#f9f4ff;
+}
+
 .job .newjoblist-header h1{
   font-size:1.5rem;
 }
 
 .header-hr{
   margin-bottom: 2rem;
-  margin-top:.3rem;
+
 }
 
 
@@ -49,4 +53,29 @@
   grid-template-columns: repeat(5, 1fr);
   font-size:2rem;
   padding:.1rem 0;
+}
+
+.description{
+  width:95%;
+  margin:0 auto;
+  min-height:5rem;
+}
+
+.post-url{
+  width:90%;
+}
+
+.job-info-ul input{
+  border-radius:2px;
+  height:1.2rem;
+  font-size:1rem;
+  width:75%;
+  border:none;
+  background-color:#eff5ff;
+}
+
+.job-info-ul textarea{
+  border-radius:5px;
+  border:none;
+  background-color:#eff5ff;
 }

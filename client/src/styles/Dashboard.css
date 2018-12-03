@@ -1,11 +1,11 @@
 .dashboard{
-  background-color:#eee;
+  background-color:#eff5ff;
   overflow: hidden;
   height:100vh;
 }
 
 .dashboard header{
-  background-color:#eee;
+  background-color:#f9f4ff;
   padding-top:.5rem;
 }
 

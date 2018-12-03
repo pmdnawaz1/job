@@ -46,7 +46,7 @@ class NewJoblist extends React.Component{
         <form onSubmit={this.submitHandler}>
           <div className="joblist-name">
             <label htmlFor="joblistName"><i className="fas fa-clipboard-list"></i></label>
-            <input value={this.state.listName} onChange={this.changeHandler} name="joblistName" type="text" placeholder="List Name"/>
+            <input autoComplete="off" value={this.state.listName} onChange={this.changeHandler} name="joblistName" type="text" placeholder="List Name"/>
           </div>
 
           <input autoFocus className="log-out save-btn" style={{opacity:this.state.opacity}} type='submit' value="Save" />
