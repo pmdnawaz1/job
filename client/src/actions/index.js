@@ -167,3 +167,39 @@ export const selectJob = (jobObj) => {
     payload: jobObj
   }
 }
+
+export const updateJob = (jobObj, id) => {
+  return dispatch => {
+    let token = "Bearer " + localStorage.getItem("jwt");
+    let options = {
+      method: 'PATCH',
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization': token
+      },
+      body:JSON.stringify({
+        job: {
+          title: jobObj.title,
+          company_name: jobObj.company,
+          location: jobObj.location,
+          snippet: jobObj.description,
+          job_link:jobObj.link,
+          salary:jobObj.salary,
+          deadline:jobObj.deadline,
+          applied:jobObj.applied,
+          interview1: jobObj.interview1,
+          interview2: jobObj.interview2,
+          offer:jobObj.offer
+        }
+      })
+    }
+    return fetch(`${baseURL}/jobs/${id}`, options)
+      .then(r=>r.json())
+      .then((response)=>{
+        dispatch({
+          type: 'UPDATE_JOB',
+          payload:response
+        })
+      })
+    }
+}

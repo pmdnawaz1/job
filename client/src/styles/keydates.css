@@ -1,0 +1,10 @@
+.keydates{
+  background-color:#eff5ff;
+  height:100vh;
+}
+
+.keydates .job-info-ul li{
+  margin:2rem 0;
+  font-size:1.2rem;
+  text-align: left;
+}

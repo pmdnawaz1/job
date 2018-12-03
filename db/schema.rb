@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 20181126202358) do
     t.string "snippet"
     t.string "job_link"
     t.integer "joblist_id"
+    t.string "salary", default: ""
+    t.string "status", default: ""
+    t.string "deadline", default: ""
+    t.string "applied", default: ""
+    t.string "interview1", default: ""
+    t.string "interview2", default: ""
+    t.string "offer", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -2,6 +2,8 @@ const SelectedJobReducer = (state={}, action) => {
   switch (action.type) {
     case "SELECT_JOB":
       return action.payload
+    case "UPDATE_JOB":
+      return action.payload
     default:
       return state
   }

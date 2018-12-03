@@ -16,6 +16,11 @@ const selectedJoblistReducer = (selectedJoblist=null, action)=>{
       let newArr = [...selectedJoblist.jobs, action.payload]
       return {...selectedJoblist, jobs:newArr}
     }
+    case "UPDATE_JOB":{
+      let filtered = selectedJoblist.jobs.filter((job) => job.id !== action.payload.id )
+      let newArr = [...filtered, action.payload]
+      return {...selectedJoblist, jobs: newArr}
+    }
     default:
       return selectedJoblist;
   }
