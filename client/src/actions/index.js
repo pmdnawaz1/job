@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode'
 
-export let baseURL = 'http://localhost:3002/api';
+export let baseURL = 'https://mudkip-backend.herokuapp.com/api';
 
 
 export const fetchJoblists = (tokenId) =>{

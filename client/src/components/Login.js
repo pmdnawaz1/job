@@ -6,7 +6,7 @@ import { fetchJoblists } from '../actions'
 
 
 
-let baseURL = 'http://localhost:3002/';
+let baseURL = 'https://mudkip-backend.herokuapp.com/';
 
 
 class Login extends React.Component{
@@ -32,7 +32,7 @@ class Login extends React.Component{
           "auth": this.state
         })
       }
-      fetch(`${baseURL}api/user_token`, options)
+      fetch(`https://mudkip-backend.herokuapp.com/api/user_token`, options)
         .then(r=>r.json())
         .then(token => {
           if (token.jwt) {
