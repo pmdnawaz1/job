@@ -203,3 +203,31 @@ export const updateJob = (jobObj, id) => {
       })
     }
 }
+
+export const submitTask = (taskObj, jobId) => {
+  return dispatch => {
+    let token = 'Bearer' + localStorage.getItem("jwt");
+    let options = {
+      method: "POST",
+      headers:{
+        'Content-Type':"application/json",
+        Authorization: token
+      },
+      body: JSON.stringify({
+        task: {
+          content: taskObj.content,
+          job_id: jobId,
+          due_date: taskObj.due_date
+        }
+      })
+    }
+    return fetch(`${baseURL}/tasks`,options)
+      .then(r=>r.json())
+      .then((response)=>{
+        dispatch({
+          type:'POST_TASK',
+          payload:response
+        })
+      })
+  }
+}

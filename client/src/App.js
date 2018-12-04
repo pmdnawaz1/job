@@ -10,6 +10,8 @@ import Dashboard from './components/Dashboard';
 import { fetchJoblists } from './actions';
 import Job from './components/Job';
 import KeyDates from './components/KeyDates'
+import Tasks from './components/Tasks'
+import NewTask from './components/NewTask'
 
 
 export const checkAuth = () =>{
@@ -50,6 +52,8 @@ class App extends Component {
           <AuthRoute exact path='/joblists' component={Joblist} />
           <AuthRoute exact path='/joblists/new' component={NewJoblist} />
           <AuthRoute path='/dashboard' component={Dashboard} />
+          <AuthRoute path='/jobs/:id/tasks/new' component={NewTask} />
+          <AuthRoute path='/jobs/:id/tasks' component={Tasks} />
           <AuthRoute path='/jobs/:id/keydates' component={KeyDates} />
           <AuthRoute path='/jobs/:id' component={Job} />
         </Switch>

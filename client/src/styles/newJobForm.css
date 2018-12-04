@@ -4,7 +4,7 @@
 
 .new-job-form{
   border-radius:5px;
-  background-color:black;
+  background-color:#444;
   opacity:1;
   width:90%;
   margin:0 auto;
@@ -34,8 +34,8 @@
   font-size:1.5rem;
   border-radius:3px;
   border:1px solid transparent;
-  background-color:#140500;
-  color:#f4f4f4;
+  background-color:#eee;
+  color:black;
 }
 
 .new-job-form > div textarea{
@@ -43,8 +43,8 @@
   font-size:1rem;
   border-radius:3px;
   border:1px solid transparent;
-  background-color:#140500;
-  color:#f4f4f4;
+  background-color:#eee;
+  color:black;
 }
 
 .submit-btn{
