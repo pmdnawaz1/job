@@ -37,7 +37,7 @@ class Tasks extends React.Component{
               <h3 className="task-intro">Tasks</h3>
               <button onClick={this.newTask} className="add-task-btn"><i className="far fa-plus-square"></i>Add A Task</button>
               {this.displayTasks()}
-            <JobNav jobInfo={this.props.job} />
+            <JobNav jobId={this.props.job.id} />
           </div>
         )
       }else{
