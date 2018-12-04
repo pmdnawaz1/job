@@ -17,14 +17,17 @@ class Tasks extends React.Component{
   }
 
   displayTasks = () => {
-    return this.props.job.tasks.map((task)=>{
-      return(
-      <div className="task" key={task.id} >
-        <h3>{task.content}<input onChange={this.changeHandler} className="task-check" type="checkbox"/></h3>
-        <small>Due Date: {task.due_date}</small>
-      </div>
-    )
-    })
+    if (typeof this.props.job.tasks !== "undefined") {
+      return this.props.job.tasks.map((task)=>{
+        return(
+        <div className="task" key={task.id} >
+          <h3>{task.content}<input onChange={this.changeHandler} className="task-check" type="checkbox"/></h3>
+          <small>Due Date: {task.due_date}</small>
+        </div>
+      )
+      })
+    }
+
   }
 
   render(){
