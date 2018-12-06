@@ -24,7 +24,7 @@ export const fetchJoblists = (tokenId) =>{
   }
 }
 
-export const getTasks = () =>{
+export const getTasks = (joblistId) =>{
   return dispatch => {
     let token = "Bearer " + localStorage.getItem("jwt");
     fetch(`${baseURL}/tasks`,{
@@ -38,7 +38,8 @@ export const getTasks = () =>{
       .then(data => {
         dispatch({
           type:'FETCH_TASKS',
-          payload: data
+          payload: data,
+          joblistId
         })
       })
       .catch(console.error)

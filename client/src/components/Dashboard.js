@@ -8,6 +8,7 @@ import Web from './Web'
 import Logo from '../media/Mudkip.png'
 import { getTasks } from '../actions'
 import TaskCard from './TaskCard'
+import Calendar from './Calendar'
 
 class Dashboard extends React.Component{
   constructor(props){
@@ -17,7 +18,8 @@ class Dashboard extends React.Component{
       plusClicked: false,
       bookmarkClicked: false,
       webClicked: false,
-      taskClicked: false
+      taskClicked: false,
+      calendarClicked:false
     }
   }
 
@@ -28,6 +30,8 @@ class Dashboard extends React.Component{
     if (nextProps.selectedJoblist && this.props.selectedJoblist !== nextProps.selectedJoblist) {
       this.setState({
         selectedJoblist: nextProps.selectedJoblist
+      }, ()=>{
+        this.props.getTasks(this.state.selectedJoblist.id)
       });
     }
   }
@@ -42,13 +46,15 @@ class Dashboard extends React.Component{
     if (this.props.selectedJoblist && typeof this.props.selectedJoblist !== 'undefined') {
       this.setState({
         selectedJoblist: this.props.selectedJoblist
+      }, ()=> {
+        this.props.getTasks(this.state.selectedJoblist.id)
       })
     }
     this.setState({
       bookmarkClicked:true
     })
 
-    this.props.getTasks()
+
   }
 
   newJob = (event) => {
@@ -97,7 +103,8 @@ class Dashboard extends React.Component{
   bookmark = () => {
     this.setState({
       bookmarkClicked:true,
-      webClicked:false
+      webClicked:false,
+      calendarClicked: false
     })
   }
 
@@ -123,7 +130,8 @@ class Dashboard extends React.Component{
     this.setState({
       bookmarkClicked:false,
       webClicked:true,
-      taskClicked:false
+      taskClicked:false,
+      calendarClicked:false
     })
   }
 
@@ -138,16 +146,45 @@ class Dashboard extends React.Component{
       plusClicked: false,
       bookmarkClicked: false,
       webClicked: false,
-      taskClicked: true
+      taskClicked: true,
+      calendarClicked:false
     })
 }
 
   displayTasks = () => {
-    return this.props.tasks.map(task=>{
-      return(
-        <TaskCard key={task.id} info={task} />
-      )
+    if (typeof this.props.tasks[0] !== 'undefined') {
+      return this.props.tasks.map(task=>{
+        return(
+          <TaskCard key={task.id} info={task} />
+        )
+      })
+    }
+
+  }
+
+  calendar = () => {
+    this.setState({
+      plusClicked: false,
+      bookmarkClicked: false,
+      webClicked: false,
+      taskClicked: false,
+      calendarClicked: true
     })
+  }
+
+  displayCalendar = () => {
+    if (this.state.calendarClicked) {
+      return <Calendar />
+    }
+  }
+
+  calendarToggle = () => {
+    let style = {
+      display: 'none'
+    }
+    if (!this.state.taskClicked) {
+      return style
+    }
   }
 
 
@@ -171,15 +208,20 @@ class Dashboard extends React.Component{
               {this.displayWeb() }
             </div>
             <div style={this.taskToggle()}>
+              <h2 style={{textAlign:'left', margin:'1rem 2rem'}}>Tasks</h2>
               {this.displayTasks()}
             </div>
+            <div>
+              {this.displayCalendar()}
+            </div>
+
           </section>
           <nav className="bottom-nav">
             <p onClick={this.bookmark} className="bookmark-icon"><i className="far fa-bookmark"></i></p>
             <p onClick={this.web} className="internet-icon" ><i className="fas fa-globe-americas"></i></p>
             <p onClick={this.newJob} className="nav-plus"><i className="far fa-plus-square"></i></p>
             <p onClick={this.task} className="list-icon"><i className="fas fa-list-ul"></i></p>
-            <p className="calendar-icon"><i className="far fa-calendar-alt"></i></p>
+            <p onClick={this.calendar} className="calendar-icon"><i className="far fa-calendar-alt"></i></p>
           </nav>
       </div>
     )

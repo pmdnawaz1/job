@@ -19,13 +19,17 @@ const JobNav = (props) => {
     props.history.push(`/jobs/${props.jobId}/files`)
   }
 
+  let calendar = () => {
+    props.history.push(`/jobs/calendar`)
+  }
+
   return(
     <nav className="job-bottom-nav">
       <p className="" onClick={jobShow} ><i className="far fa-question-circle"></i></p>
       <p className="" onClick={keyDates} ><i className="fas fa-clock"></i></p>
       <p className="" onClick={tasks} ><i className="fas fa-list-ul"></i></p>
       <p className="" onClick={files}><i className="far fa-file"></i></p>
-      <p className="calendar-icon"><i className="far fa-calendar-alt"></i></p>
+      <p className="" onClick={calendar} ><i className="far fa-calendar-alt"></i></p>
     </nav>
   )
 }

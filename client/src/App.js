@@ -13,6 +13,7 @@ import KeyDates from './components/KeyDates'
 import Tasks from './components/Tasks'
 import NewTask from './components/NewTask'
 import ResumeUpload from './components/ResumeUpload'
+import JobCalendar from './components/JobCalendar'
 
 export const checkAuth = () =>{
   const token  = window.localStorage.getItem('jwt');
@@ -52,6 +53,7 @@ class App extends Component {
           <AuthRoute exact path='/joblists' component={Joblist} />
           <AuthRoute exact path='/joblists/new' component={NewJoblist} />
           <AuthRoute path='/dashboard' component={Dashboard} />
+          <AuthRoute path='/jobs/calendar' component={JobCalendar} />
           <AuthRoute path='/jobs/:id/tasks/new' component={NewTask} />
           <AuthRoute path='/jobs/:id/tasks' component={Tasks} />
           <AuthRoute path='/jobs/:id/keydates' component={KeyDates} />

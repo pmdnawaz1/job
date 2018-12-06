@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-
+  get '/api/joblists/gettasks/:id', to: 'joblists#getTasks'
 
 
   scope '/api' do
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :joblists
     resources :users
     resources :tasks
+
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

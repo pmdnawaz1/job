@@ -1,7 +1,10 @@
 const TasksReducer = (state=[], action) => {
   switch (action.type) {
     case "FETCH_TASKS":{
-      return action.payload
+      let arr = action.payload.filter((task) => {
+        return task.job.joblist_id === action.joblistId
+      })
+      return arr;
     }
     default:
       return state

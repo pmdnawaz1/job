@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :joblists
+  # has_many :jobs, through: :joblists
+  # has_many :tasks, through: :joblists
   has_secure_password
   validates :username, presence: true, uniqueness: true
 

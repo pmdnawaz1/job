@@ -4,8 +4,8 @@ import React from 'react'
 class TaskCard extends React.Component{
   render(){
     return(
-      <div>
-        <p>{this.props.info.content}</p>
+      <div className="task" >
+        <p>{this.props.info.content}- {this.props.info.due_date}</p>
       </div>
     )
   }
