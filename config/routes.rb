@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get '/api/joblists/gettasks/:id', to: 'joblists#getTasks'
-
-
   scope '/api' do
     post 'user_token' => 'user_token#create'
     resources :joblist_jobs

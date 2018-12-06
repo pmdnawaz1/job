@@ -20,7 +20,7 @@ class SignUp extends Component{
   }
 
   submitHandler = (e) => {
-    let tokenUrl = 'http://localhost:3002/api/users'
+    let tokenUrl = 'https://mudkip-backend.herokuapp.com/api/users'
     e.preventDefault()
     fetch(tokenUrl, {
       method: 'POST',
