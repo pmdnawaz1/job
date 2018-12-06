@@ -9,9 +9,9 @@ import { uploadFiles } from '../actions'
 class ResumeUpload extends Component {
 
   state={
-    resume: "",
+    resume: {name:'resume'},
     resumeUrl: "",
-    coverLetter:"",
+    coverLetter:{name:"coverletter"},
     coverLetterUrl: ""
   }
 
@@ -76,21 +76,44 @@ class ResumeUpload extends Component {
   render(){
     let checkJob=()=>{
       if (typeof this.props.job.id !== 'undefined') {
-        return(
-          <div>
-            <JobHeader title={this.props.job.title} />
-            <div className="upload-btn-wrapper">
-              <button className="btn">Pick a Resume</button>
-              <input onChange={this.handleChange} type="file" name="myfile" />
+        if (!this.props.job.job_file) {
+          return(
+            <div className="file-page">
+              <JobHeader title={this.props.job.title} />
+              <h3>Please upload your Resume and Coverletter in PDF format.</h3>
+              <div className="upload-btn-wrapper">
+                <button className="btn">Pick a Resume</button>
+                <input onChange={this.handleChange} type="file" name="myfile" />
+              </div>
+              <p>You Picked: {this.state.resume.name}</p>
+              <div className="upload-btn-wrapper">
+                <button className="btn">Pick a Cover Letter</button>
+                <input onChange={this.handleCover} type="file" name="" />
+              </div>
+              <p>You Picked: {this.state.coverLetter.name}</p>
+              <button className="upload-resume" onClick={this.handleUpload}>Upload {this.state.resume.name} and {this.state.coverLetter.name}</button>
+              <JobNav jobId={this.props.job.id} />
             </div>
-            <div className="upload-btn-wrapper">
-              <button className="btn">Pick a Cover Letter</button>
-              <input onChange={this.handleCover} type="file" name="" />
+          )
+        }else{
+          return(
+            <div className="file-page">
+              <JobHeader title={this.props.job.title} />
+              <div className="files-show">
+                <div className="resume-show">
+                  <iframe title="resume" src={this.props.job.job_file.resume_link} />
+                  <a target="_blank" rel="noopener noreferrer" href={this.props.job.job_file.resume_link}>Download Resume</a>
+                </div>
+                <div className="cover-letter-show">        
+                  <iframe title="coverLetter" src={this.props.job.job_file.cover_letter_link} />
+                    <a target="_blank" rel="noopener noreferrer" href={this.props.job.job_file.cover_letter_link} >Download Cover Letter</a>
+                </div>
+              </div>
+
+              <JobNav jobId={this.props.job.id} />
             </div>
-            <button className="upload-resume" onClick={this.handleUpload}>Upload {this.state.resume.name} and {this.state.coverLetter.name}</button>
-            <JobNav jobId={this.props.job.id} />
-          </div>
-        )
+          )
+        }
       }else{
         return(<div>{this.props.history.push("/dashboard")}</div>)
       }

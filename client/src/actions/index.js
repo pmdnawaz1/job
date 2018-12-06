@@ -250,7 +250,14 @@ export const uploadFiles = (fileObj, jobId) => {
       })
     }
 
+    fetch(`${baseURL}/job_files`, options)
+      .then(r=>r.json())
+      .then((resp)=>{
+        dispatch({
+          type:'SAVE_FILES',
+          payload: resp
+        })
+      })
 
-    debugger
   }
 }

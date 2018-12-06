@@ -1,3 +1,3 @@
 class JobFile < ApplicationRecord
-  belongs_to :job
+  has_one :job
 end
