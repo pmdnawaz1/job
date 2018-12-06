@@ -3,7 +3,7 @@ const SelectedJobReducer = (state={}, action) => {
     case "SELECT_JOB":
       return {...state, ...action.payload}
     case "UPDATE_JOB":
-      return {...state,...action.payload}
+      return action.payload
     case "POST_TASK":{
       let newArr = [...state.tasks, action.payload]
       return {...state, tasks: newArr}

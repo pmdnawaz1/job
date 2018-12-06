@@ -25,6 +25,7 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1
   def update
     if @job.update(job_params)
+
       render json: @job
     else
       render json: @job.errors, status: :unprocessable_entity
