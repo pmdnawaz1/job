@@ -2,11 +2,15 @@ import React from 'react'
 import '../styles/SearchedCard.css'
 import { connect } from 'react-redux'
 import { saveSearchedJobToJoblist } from '../actions'
+import { withRouter } from 'react-router'
 
 
 const SearchedCard = (props) => {
   const handleSave = () => {
     props.saveSearchedJobToJoblist(props.info, props.joblist_id)
+      .then(()=>{
+        props.history.push(`/jobs/${props.job.id}`)
+      })
 
   }
   return(
@@ -28,8 +32,9 @@ const SearchedCard = (props) => {
 
 const mapStateToProps = (state) => {
   return{
-    joblist_id:state.selectedJoblist.id
+    joblist_id:state.selectedJoblist.id,
+    job:state.selectedJob
   }
 }
 
-export default connect(mapStateToProps, { saveSearchedJobToJoblist })(SearchedCard)
+export default withRouter(connect(mapStateToProps, { saveSearchedJobToJoblist })(SearchedCard))

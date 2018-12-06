@@ -44,10 +44,10 @@ class Web extends React.Component{
     return(
       <div className="web">
         <form className="web-form" onSubmit={this.submitHandler}>
-            <input name="job_title" value={this.state.job_title} onChange={this.changeHandler} placeholder="Position" type="text"></input>
-            <input name="city" onChange={this.changeHandler} value={this.state.city} placeholder="City" type="text"></input>
+            <input autoComplete="off" name="job_title" value={this.state.job_title} onChange={this.changeHandler} placeholder="Position" type="text"></input>
+            <input autoComplete="off" name="city" onChange={this.changeHandler} value={this.state.city} placeholder="City" type="text"></input>
             <SelectUSState className="state-select" onChange={this.setNewValue}/>
-          <input className="submit-btn web-submit" type="submit" value='Search'></input>
+          <input id="web-submit" type="submit" value='Search'></input>
         </form>
         <div className="zip-jobs">
           {this.displayZipJobs()}

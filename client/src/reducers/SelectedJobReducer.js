@@ -8,6 +8,12 @@ const SelectedJobReducer = (state={}, action) => {
       let newArr = [...state.tasks, action.payload]
       return {...state, tasks: newArr}
     }
+    case 'SAVE_JOB':{
+      return {...state, ...action.payload}
+    }
+    case 'SAVE_FILES':{
+      return {...state, job_file: action.payload}
+    }
     default:
       return state
   }

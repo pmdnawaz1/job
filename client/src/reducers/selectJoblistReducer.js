@@ -21,6 +21,15 @@ const selectedJoblistReducer = (selectedJoblist=null, action)=>{
       let newArr = [...filtered, action.payload]
       return {...selectedJoblist, jobs: newArr}
     }
+    case 'SAVE_FILES':{
+      let job = selectedJoblist.jobs.find((job) => job.id === action.payload.job_id);
+      let newJob = {...job, job_file: action.payload}
+      let filtered = selectedJoblist.jobs.filter((job) => job.id !== action.payload.job_id)
+      let newArr = [...filtered, newJob]
+      return {...selectedJoblist, jobs:newArr}
+    }
+
+
     default:
       return selectedJoblist;
   }

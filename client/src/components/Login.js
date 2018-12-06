@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import '../styles/Login.css'
 import { connect } from 'react-redux'
 import { fetchJoblists } from '../actions'
+import Logo from '../media/Mudkip.png'
 
 
 
@@ -57,16 +58,16 @@ class Login extends React.Component{
           <div className="left">
             <div className="signin">
               <div className="logo">
-                <h1>Login</h1>
+                <img className="login-logo" src={Logo} alt="mudkip" />
               </div>
               <form onSubmit={this.submitHandler}>
                 <div>
                   <label htmlFor="username">Username</label>
-                  <input className="text-input" name="username" type="text" value={this.state.username} onChange={this.changeHandler} />
+                  <input autoComplete="off" className="text-input" name="username" type="text" value={this.state.username} onChange={this.changeHandler} />
                 </div>
                 <div>
                   <label htmlFor="password">Password</label>
-                  <input className="text-input" name="password" type="password" value={this.state.password} onChange={this.changeHandler} />
+                  <input autoComplete="off" className="text-input" name="password" type="password" value={this.state.password} onChange={this.changeHandler} />
                 </div>
                 <div>
                   <input type="submit" className="primary-btn" value="Sign in"/>

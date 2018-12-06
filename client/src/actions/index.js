@@ -231,3 +231,33 @@ export const submitTask = (taskObj, jobId) => {
       })
   }
 }
+
+export const uploadFiles = (fileObj, jobId) => {
+  return dispatch => {
+    let token = 'Bearer' + localStorage.getItem("jwt");
+    let options = {
+      method: "POST",
+      headers:{
+        'Content-Type':"application/json",
+        Authorization: token
+      },
+      body: JSON.stringify({
+        job_file: {
+          resume_link:fileObj.resumeUrl,
+          job_id: jobId,
+          cover_letter_link:fileObj.coverLetterUrl
+        }
+      })
+    }
+
+    fetch(`${baseURL}/job_files`, options)
+      .then(r=>r.json())
+      .then((resp)=>{
+        dispatch({
+          type:'SAVE_FILES',
+          payload: resp
+        })
+      })
+
+  }
+}
