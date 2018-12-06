@@ -101,11 +101,11 @@ class ResumeUpload extends Component {
               <JobHeader title={this.props.job.title} />
               <div className="files-show">
                 <div className="resume-show">
-                  <iframe title="resume" src={this.props.job.job_file.resume_link} />
+                  <iframe type="application/pdf" title="resume" src={this.props.job.job_file.resume_link} />
                   <a target="_blank" rel="noopener noreferrer" href={this.props.job.job_file.resume_link}>Download Resume</a>
                 </div>
-                <div className="cover-letter-show">        
-                  <iframe title="coverLetter" src={this.props.job.job_file.cover_letter_link} />
+                <div className="cover-letter-show">
+                  <iframe type="application/pdf" title="coverLetter" src={this.props.job.job_file.cover_letter_link} />
                     <a target="_blank" rel="noopener noreferrer" href={this.props.job.job_file.cover_letter_link} >Download Cover Letter</a>
                 </div>
               </div>

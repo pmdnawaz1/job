@@ -3,27 +3,20 @@ import JobHeader from './JobHeader'
 import JobNav from './JobNav'
 import { connect } from 'react-redux'
 import '../styles/tasks.css'
+import TaskCard from './TaskCard'
 
 
 class Tasks extends React.Component{
 
-
   newTask= () => {
     this.props.history.push(`/jobs/${this.props.job.id}/tasks/new`)
-  }
-
-  changeHandler = (e) => {
-
   }
 
   displayTasks = () => {
     if (typeof this.props.job.tasks !== "undefined") {
       return this.props.job.tasks.map((task)=>{
         return(
-        <div className="task" key={task.id} >
-          <h3>{task.content}<input onChange={this.changeHandler} className="task-check" type="checkbox"/></h3>
-          <small>Due Date: {task.due_date}</small>
-        </div>
+        <TaskCard key={task.id} info={task}/>
       )
       })
     }

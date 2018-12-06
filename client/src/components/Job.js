@@ -53,14 +53,14 @@ class Job extends React.Component{
         <h3 className="info-header">Job Information</h3>
         <ul className="job-info-ul">
           <li><strong>Company:</strong> <input name="company" onChange={this.changeHandler} value={this.state.company}></input></li>
-          <li><strong>Job title:</strong> <input name="title" onChange={this.changeHandler} value={this.state.title}></input></li>
+          <li><strong>Job title:</strong> <input id="longer-link" name="title" onChange={this.changeHandler} value={this.state.title}></input></li>
           <li><strong>Location:</strong> <input name="location" onChange={this.changeHandler} value={this.state.location}></input></li>
-          <li><strong>Salary:</strong> <input name="salary" onChange={this.changeHandler} value={this.state.salary}></input></li>
-          <li><strong>Post URL:</strong> <input name="link" onChange={this.changeHandler} className="post-url" value={this.state.link}></input></li>
+          <li><strong>Salary:</strong> <input name="salary" placeholder="Set Salary" onChange={this.changeHandler} value={this.state.salary}></input></li>
+          <li><strong>Post URL:</strong> <input id="longer-link" name="link" onChange={this.changeHandler} className="post-url" value={this.state.link}></input></li>
           <li><strong>Description</strong></li>
           <li><textarea  name="description" onChange={this.changeHandler} value={this.state.description} className='description'></textarea></li>
         </ul>
-        
+
         <button className="update-btn" onClick={this.update}>Update</button>
 
         <JobNav jobId={this.props.selectedJob.id} />

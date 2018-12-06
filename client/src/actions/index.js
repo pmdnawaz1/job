@@ -24,6 +24,28 @@ export const fetchJoblists = (tokenId) =>{
   }
 }
 
+export const getTasks = (joblistId) =>{
+  return dispatch => {
+    let token = "Bearer " + localStorage.getItem("jwt");
+    fetch(`${baseURL}/tasks`,{
+      method: 'GET',
+      headers:{
+        'Content-Type':'application/json',
+        'Authorization': token
+      }
+    })
+      .then(r=>r.json())
+      .then(data => {
+        dispatch({
+          type:'FETCH_TASKS',
+          payload: data,
+          joblistId
+        })
+      })
+      .catch(console.error)
+  }
+}
+
 export const getSelectedJoblist = (tokenId, joblist_id) => {
   return dispatch => {
     let token = "Bearer " + tokenId;
@@ -261,3 +283,22 @@ export const uploadFiles = (fileObj, jobId) => {
 
   }
 }
+
+// export const signUp = () => {
+//   fetch(tokenURL, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       'user':
+//       {
+//         username: this.state.username,
+//         email: this.state.email,
+//         password: this.state.password,
+//         password_confirmation: this.state.passwordConfirmation
+//       }
+//   }
+//   )
+//   })
+// }

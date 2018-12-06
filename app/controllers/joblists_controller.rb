@@ -39,6 +39,12 @@ class JoblistsController < ApplicationController
     @joblist.destroy
   end
 
+  def getTasks
+    @id = params["id"];
+    @joblist = Joblist.find(@id)
+    render json: @joblist.tasks
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_joblist

@@ -10,6 +10,8 @@
 
 .add-task-btn{
   color:#aaa;
+  background-color:#eff5ff;
+  border:none;
   font-size:1rem;
   margin-top:1.5rem;
 }
@@ -86,4 +88,8 @@
 
 .task-check{
   margin-left:1rem;
+}
+
+.lined{
+  text-decoration: line-through;
 }

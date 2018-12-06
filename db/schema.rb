@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20181205213533) do
     t.string "content"
     t.string "job_id"
     t.string "due_date"
+    t.boolean "checked", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

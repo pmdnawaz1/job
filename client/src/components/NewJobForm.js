@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/newJobForm.css';
 import { postJob } from '../actions';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
 
 class NewJobForm extends React.Component{
   state = {
@@ -35,23 +35,23 @@ class NewJobForm extends React.Component{
           <h1>Add A Job!</h1>
           <span onClick={this.props.displayToggle} className="close-btn">X</span>
           <div>
-            <input value={this.state.title} onChange={this.changeHandler} name="title" type="text" placeholder="Job Title"></input>
+            <input autoComplete="off" value={this.state.title} onChange={this.changeHandler} name="title" type="text" placeholder="Job Title"></input>
           </div>
           <div>
-            <input value={this.state.company_name} onChange={this.changeHandler} name="company_name" type="text" placeholder="Company Name"></input>
+            <input autoComplete="off" value={this.state.company_name} onChange={this.changeHandler} name="company_name" type="text" placeholder="Company Name"></input>
           </div>
           <div>
-            <input value={this.state.location} onChange={this.changeHandler} name="location" type="text" placeholder="Location"></input>
+            <input autoComplete="off" value={this.state.location} onChange={this.changeHandler} name="location" type="text" placeholder="Location"></input>
           </div>
           <div>
-            <textarea value={this.state.snippet} onChange={this.changeHandler} name="snippet" rows="4" placeholder="Description"></textarea>
+            <textarea autoComplete="off" value={this.state.snippet} onChange={this.changeHandler} name="snippet" rows="4" placeholder="Description"></textarea>
           </div>
           <div>
-            <input value={this.state.job_link} onChange={this.changeHandler} name="job_link" type="text" placeholder="Paste Link"></input>
+            <input autoComplete="off" value={this.state.job_link} onChange={this.changeHandler} name="job_link" type="text" placeholder="Paste Link"></input>
           </div>
           <input className="submit-btn" type="submit"></input>
         </form>
-    
+
     )
   }
 }
