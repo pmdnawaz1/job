@@ -89,3 +89,7 @@
 .task-check{
   margin-left:1rem;
 }
+
+.lined{
+  text-decoration: line-through;
+}

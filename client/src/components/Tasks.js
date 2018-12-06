@@ -12,8 +12,6 @@ class Tasks extends React.Component{
     this.props.history.push(`/jobs/${this.props.job.id}/tasks/new`)
   }
 
-
-
   displayTasks = () => {
     if (typeof this.props.job.tasks !== "undefined") {
       return this.props.job.tasks.map((task)=>{

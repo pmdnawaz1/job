@@ -14,6 +14,7 @@ import Tasks from './components/Tasks'
 import NewTask from './components/NewTask'
 import ResumeUpload from './components/ResumeUpload'
 import JobCalendar from './components/JobCalendar'
+import SignUp from './components/SignUp'
 
 export const checkAuth = () =>{
   const token  = window.localStorage.getItem('jwt');
@@ -50,6 +51,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Homescreen} />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={SignUp} />
           <AuthRoute exact path='/joblists' component={Joblist} />
           <AuthRoute exact path='/joblists/new' component={NewJoblist} />
           <AuthRoute path='/dashboard' component={Dashboard} />

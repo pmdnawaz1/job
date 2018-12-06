@@ -283,3 +283,22 @@ export const uploadFiles = (fileObj, jobId) => {
 
   }
 }
+
+// export const signUp = () => {
+//   fetch(tokenURL, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       'user':
+//       {
+//         username: this.state.username,
+//         email: this.state.email,
+//         password: this.state.password,
+//         password_confirmation: this.state.passwordConfirmation
+//       }
+//   }
+//   )
+//   })
+// }

@@ -12,7 +12,7 @@ class Homescreen extends React.Component{
   }
 
   onSwipeDownListener = (e)=>{
-    console.log("swipped down");
+    this.props.history.push("/signup")
   }
 
   onSwipeUpListener = () =>{

@@ -1,0 +1,34 @@
+
+.login-wrapper{
+  text-align: left;
+  height:100vh;
+  background-color:#484f5b;
+  color:#f4f4f4;
+}
+
+.signin{
+  width:100%;
+}
+
+.signup-fields{
+  margin-top:1rem;
+  border: 1px solid gray;
+  padding:2rem;
+}
+
+.signup-fields input{
+  margin:0rem 0;
+  width:100%;
+  border-radius:2px;
+  border:none;
+  height:1.5rem;
+}
+
+#signup-btn{
+  height:3rem;
+  margin-top:1rem;
+}
+
+.signup-logo{
+  margin-top:0rem;
+}
