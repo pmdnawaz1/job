@@ -60,6 +60,20 @@
   }
 
   .homepage-nav{
-    margin-top:2.5rem;
+    margin-top:15rem;
   }
+
+  .homepage h1{
+    grid-column: 7/9;
+  }
+
+  .homepage-logo{
+    grid-column: 6/7;
+  }
+
+  .desc{
+    margin:3rem;
+  }
+
+
 }

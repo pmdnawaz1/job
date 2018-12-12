@@ -73,30 +73,14 @@ class Login extends React.Component{
                   <input type="submit" className="primary-btn" value="Sign in"/>
                 </div>
               </form>
-              <div className="links">
-                <Link className="forgot-password" to="/">Forgot Password?</Link>
-              </div>
-              <div className="or">
-                <hr className="bar" />
-                <span>OR</span>
-                <hr className="bar" />
-              </div>
+              
 
               <Link to="/signup" className="secondary-btn">Create an account</Link>
 
             </div>
           </div>
 
-          <div className="right">
-            <div id="showcase">
-              <div className="showcase-content">
-                <div className="right-container">
-                  <h1 className="showcase-text">Immerse your life in <strong>Music</strong> with your Social Jukebox</h1>
-                  <Link to="/signup" className="secondary-btn">Join for Free</Link>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
 
     )
