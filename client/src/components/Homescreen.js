@@ -74,7 +74,7 @@ class Homescreen extends React.Component{
               </div>
 
               <p className="desc">Refine Your Job Search</p>
-              <h3 className="desc">Swipe Up/Down to Get Started</h3>
+              <h3 className="desc-swipe">Swipe Up/Down to Get Started</h3>
               <video id="background-video" autoPlay muted loop>
                 <source src={NightSky} type="video/mp4" />
               </video>
