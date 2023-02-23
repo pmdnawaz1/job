@@ -1,0 +1,86 @@
+[debug] [2023-02-23T09:09:06.160Z] ----------------------------------------------------------------------
+[debug] [2023-02-23T09:09:06.164Z] Command:       C:\Users\User\DOWNLO~1\firebase-tools-instant-win.exe C:\Users\User\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase init hosting
+[debug] [2023-02-23T09:09:06.164Z] CLI Version:   11.23.1
+[debug] [2023-02-23T09:09:06.164Z] Platform:      win32
+[debug] [2023-02-23T09:09:06.164Z] Node Version:  v16.16.0
+[debug] [2023-02-23T09:09:06.166Z] Time:          Thu Feb 23 2023 14:39:06 GMT+0530 (India Standard Time)
+[debug] [2023-02-23T09:09:06.166Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-23T09:09:06.264Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-23T09:09:06.265Z] > authorizing via signed-in user (pmdnawaz1@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\User\Desktop\job-tracker\client
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-02-23T09:09:12.922Z] Using project from CLI flag: mudkip-314fd
+[debug] [2023-02-23T09:09:12.926Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mudkip-314fd [none]
+[debug] [2023-02-23T09:09:14.146Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mudkip-314fd 403
+[debug] [2023-02-23T09:09:14.147Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mudkip-314fd {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2023-02-23T09:09:14.148Z] HTTP Error: 403, The caller does not have permission
+[debug] [2023-02-23T09:09:14.508Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\User\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\User\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project mudkip-314fd. Please make sure the project exists and your account has permission to access it.
+[debug] [2023-02-23T09:12:13.016Z] ----------------------------------------------------------------------
+[debug] [2023-02-23T09:12:13.019Z] Command:       C:\Users\User\DOWNLO~1\firebase-tools-instant-win.exe C:\Users\User\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase init
+[debug] [2023-02-23T09:12:13.019Z] CLI Version:   11.23.1
+[debug] [2023-02-23T09:12:13.019Z] Platform:      win32
+[debug] [2023-02-23T09:12:13.019Z] Node Version:  v16.16.0
+[debug] [2023-02-23T09:12:13.021Z] Time:          Thu Feb 23 2023 14:42:13 GMT+0530 (India Standard Time)
+[debug] [2023-02-23T09:12:13.021Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-02-23T09:12:13.124Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-02-23T09:12:13.125Z] > authorizing via signed-in user (pmdnawaz1@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\User\Desktop\job-tracker\client
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-02-23T09:12:20.786Z] Using project from CLI flag: mudkip-314fd
+[debug] [2023-02-23T09:12:20.789Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mudkip-314fd [none]
+[debug] [2023-02-23T09:12:21.497Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mudkip-314fd 403
+[debug] [2023-02-23T09:12:21.498Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mudkip-314fd {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2023-02-23T09:12:21.500Z] HTTP Error: 403, The caller does not have permission
+[debug] [2023-02-23T09:12:21.892Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\User\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\User\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project mudkip-314fd. Please make sure the project exists and your account has permission to access it.

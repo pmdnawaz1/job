@@ -1,0 +1,59 @@
+
+
+
+
+.new-job-form{
+  border-radius:5px;
+  background-color:#444;
+  opacity:1;
+  width:90%;
+  margin:0 auto;
+  padding:1rem;
+  color: #f4f4f4;
+}
+.new-job-form h1{
+  color: #f4f4f4;
+}
+
+.close-btn{
+  position:absolute;
+  right:3rem;
+  padding:0 .5rem;
+  border-radius:2px;
+  border:1px solid white;
+
+}
+
+.new-job-form > div{
+  margin: 1rem 0;
+}
+
+.new-job-form > div input{
+  height:4rem;
+  width:95%;
+  font-size:1.5rem;
+  border-radius:3px;
+  border:1px solid transparent;
+  background-color:#eee;
+  color:black;
+}
+
+.new-job-form > div textarea{
+  width:95%;
+  font-size:1rem;
+  border-radius:3px;
+  border:1px solid transparent;
+  background-color:#eee;
+  color:black;
+}
+
+.submit-btn{
+  color:#f4f4f4;
+  width:50%;
+  opacity:1;
+  border:none;
+  margin: 1rem 0;
+  padding:.6rem;
+  font-size: 1rem;
+  background-color:#ff570f;
+}

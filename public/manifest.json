@@ -1,0 +1,16 @@
+{
+  "short_name": "Mudkip",
+  "name": "Mudkip Job Application Tracker",
+  "icons": [
+    {
+      "src": "./Mudkip.png",
+      "sizes": "96x96, 144x144, 256x256, 512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ff6600",
+  "background_color": "#ffffff",
+  "orientation": "portrait"
+}

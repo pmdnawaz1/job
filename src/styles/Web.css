@@ -1,0 +1,39 @@
+.state-select{
+  display:block;
+  margin:.5rem auto;
+  background-color:#eee;
+  border:1px solid #444;
+  border-radius: 3px;
+  border-radius:3px;
+}
+
+.web-form input{
+  border:1px solid #444;
+  height:2rem;
+  font-size:1rem;
+  width:50%;
+}
+
+#web-submit{
+  width:15%;
+  height:1.5rem;
+  font-size: .7rem;
+  border-radius:2px;
+  background-color:#ff6600;
+  margin-left:.7rem;
+}
+
+.state-select{
+  display:inline;
+}
+
+.web{
+  height:100%;
+
+}
+
+.zip-jobs{
+  position: absolute;
+  height:70%;
+  overflow: auto;
+}

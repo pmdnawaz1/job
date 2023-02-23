@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster|Roboto');
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+.App {
+  text-align: center;
+}
+
+
+.homepage{
+  color: #f4f4f4;
+  height:100vh;
+}
+
+.homepage h1{
+  padding-top: 2rem;
+  font-size: 3rem;
+}
+
+.test{
+  height: 100%;
+}
+
+#background-video {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index:-1;
+  object-fit: cover;
+  height: 100%;
+  width: 100vw;
+}
+
+#up-btn{
+  padding:.5rem;
+  position: relative;
+  animation-duration:2s;
+  animation-name:slideup;
+  animation-iteration-count: infinite;
+  color:#ff6600;
+}
+
+#down-btn{
+  padding:.5rem;
+  position: relative;
+  animation-duration:2s;
+  animation-name:slidedown;
+  animation-iteration-count: infinite;
+  color:#ff6600;
+}
+
+.divider{
+  font-size:2rem;
+  padding:1rem;
+}
+
+
+
+@keyframes slideup{
+  from{
+    opacity: 0;
+    bottom:0rem;
+  }
+  60%{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+    bottom:.70rem;
+  }
+}
+
+@keyframes slidedown{
+  from{
+    opacity: 0;
+    top:0rem;
+  }
+  60%{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+    top:.70rem;
+  }
+}
